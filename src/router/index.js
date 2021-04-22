@@ -14,7 +14,17 @@ const routes = [
     component: () => import(/* webpackChunkName: "perfil" */ '../views/Perfil.vue'),
     meta: {
       requiresAuth: true
-    }
+    },
+    
+  },
+  {
+    path: '/crud',
+    name: 'Crud',
+    component: () => import(/* webpackChunkName: "crud" */ '../views/Crud.vue'),
+    meta: {
+      requiresAuth: true
+    },
+    
   }
 ]
 
