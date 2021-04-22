@@ -1,26 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import {firebase} from '../firebase'
-// import {useAuth} from '@vueuse/firebase'
-
-
-// const usarAutenticacion = (to, from, next) => {
-//   const {isAuthenticated} = useAuth()
-//   if(isAuthenticated.value){
-//     next()
-//   }else {
-//     next('/')
-//   }
-// }
-
-// const usarSinAutenticacion = (to, from, next) => {
-//   const {isAuthenticated} = useAuth()
-//   if(isAuthenticated.value){
-//     next('/perfil')
-//   }else { 
-//     next()
-//   }
-// }
 
 const routes = [
   {
