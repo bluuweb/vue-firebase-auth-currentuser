@@ -1,21 +1,23 @@
-oForm.vue
-
 <template>
-  <form @submit.prevent="procesarFormulario">
-    <input
-      type="text"
-      placeholder="Enter para agregar Tarea"
-      class="form-control my-3"
-      v-model.trim="texto"
-    />
-  </form>
+  <div class="p-fluid">
+    <form @submit.prevent="procesarFormulario" class="p-field">
+      <InputText 
+        type="text"
+        placeholder="Enter para agregar Tarea"
+        class="p-my-3 p-shadow-1 form-control"
+        v-model.trim="texto"
+      />
+    </form>
+  </div>
 </template>
 
 <script>
 import { inject, ref } from "vue";
 import { useDb } from "../composables/useDb";
+import InputText from 'primevue/inputtext'
 
 export default {
+  components: {InputText },
   setup() {
     const { agregarTodo } = useDb();
 
@@ -39,3 +41,9 @@ export default {
 };
 
 </script>
+
+<style>
+.form-control {
+  border: none;
+}
+</style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="card shadow-sm mb-2">
+  <!-- <div class="card shadow-sm mb-2">
     <div class="card-body">
       <p class="m-0" :class="{ 'text-decoration-line-through': todo.estado }">
         {{ todo.texto }}
@@ -22,13 +22,41 @@
         </button>
       </div>
     </div>
-  </div>
+  </div> -->
+  <Card class="p-shadow-1 p-mb-3">
+    <template #content>
+      <p>
+        {{todo.texto}}
+      </p>
+    </template>
+    <template #footer>
+      <Button 
+        icon="pi pi-check" 
+        :label="todo.estado ? 'Finalizada' : 'Pendiente'" 
+        @click="modificar(todo)"
+        :disabled="bloquear"
+        loadingIcon="pi pi-spinner pi-spin"
+        :class="todo.estado ? 'p-button-success' : 'p-button-warning'"
+      />
+      <Button
+        icon="pi pi-times"
+        label="Eliminar"
+        class="p-button-secondary p-ml-2"
+        @click="eliminar(todo.id)"
+        :disabled="bloquear"
+      />
+    </template>
+  </Card>
 </template>
 
 <script>
 import { inject, ref } from "vue";
 import { useDb } from "../composables/useDb";
+import Card from "primevue/card";
+import Button from "primevue/button";
+
 export default {
+  components: { Card, Button },
   props: {
     todo: Object,
   },
