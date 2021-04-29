@@ -30,6 +30,11 @@ export default {
 
       const todo = await agregarTodo(texto.value);
 
+      if(todo.res){
+          error.value = todo.error
+          texto.value = ''
+      }
+
       todos.value = [...todos.value, todo];
       texto.value = "";
     };
